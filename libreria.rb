@@ -26,24 +26,9 @@ end
 def  buscar_libro(libro,l)
     if vaciaa?(libro)
     else
-        elemento = {}
-        r= libro [:tope]
-       loop do
-           if l == r[:nombre]
-                elemento = r
-                puts "LIBRO ENCONTRADO"
-                #coocar aqui
-                return true
-                 break
-            elsif r [:siguiente ] ==  nil
-                puts "libro no encontrado"
-                break
-            else
-                r = r [:siguiente ]
+       
             end
-        end
-    end
-end
+  end
 #insertar libro
 def otroin(libro,a,autor,l,f)
     puts 'ISBN'
@@ -264,7 +249,141 @@ def  buscar_autorlibros(autor,n,libro)
     end
 end
 
+def descuento(existencias,compra)
+    #aux[:precio]
+    if compra==3
+        Venta=(lib1+lib2+lib3)
+        T=Venta%10
+        T2=Venta%5
+        VentaT=Venta-(T+T2)
+    elsif compra==2
+        Venta=(lib1+lib2)
+        T=Venta%20
+        VentaT=Venta-T
+    elsif compra==1
+        Venta=lib
+    end  
+end
+#Ingresamos lineas nuevas 
 
+def ventas(libro,existencias,precio)
+    
+   puts mostrar(libro, existencias)
+    puts "REALIZAR VENTA"
+    puts "Escriba cuantas ventas desea realizar"
+    compra= gets.chomp.to_i
+
+    if compra==3
+        puts "Ingrese primer libro"
+        lib1=gets.chomp
+        if buscarlibro(libro,a,autor)
+            puts "Libro econtrado"
+            def descuento(existencias,compra)
+    #aux[:precio]
+    if compra==3
+        Venta=(lib1+lib2+lib3)
+        T=Venta%10
+        T2=Venta%5
+        VentaT=Venta-(T+T2)
+    elsif compra==2
+        Venta=(lib1+lib2)
+        T=Venta%20
+        VentaT=Venta-T
+    elsif compra==1
+        Venta=lib
+    end  
+end
+
+def ventas(libro,existencias,precio)
+    
+   puts mostrar(libro, existencias)
+    puts "REALIZAR VENTA"
+    puts "Escriba cuantas ventas desea realizar"
+    compra= gets.chomp.to_i
+
+    if compra==3
+        puts "Ingrese primer libro"
+        lib1=gets.chomp
+        if buscarlibro(libro,a,autor)
+            puts "Libro econtrado"
+        end
+        puts "Ingrese segundo libro"
+        lib2=gets.chomp
+        if buscarlibro(libro,a,autor)
+            puts "Libro econtrado"
+        end
+        puts "Ingrese tercer numero"
+        lib3=gets.chomp
+        if buscarlibro(libro,a,autor)
+            puts "Libro econtrado"
+        end
+        descuento(libro, existencias)
+
+    elsif compra==2
+        puts "Ingrese primer libro"
+        lib1=gets.chomp
+        if buscarlibro(libro,a,autor)
+            puts "Libro encontrado"
+        end
+        puts "Ingrese Segundo libro"
+        lib2=gets.chomp
+        if buscarlibro(libro,a,autor)
+            puts "Libro encontrado"
+        end
+        descuento(libro, existencias)
+
+    elsif compra==1
+        puts "Ingrese nombre del libro"
+        lib1=gets.chomp
+        if buscarlibro(libro,a,autor)
+            puts "Libro encontrado"
+        end
+        descuento(libro, existencias)
+
+    else
+        puts "Solo puede realizar 3 compras"
+    end
+
+end
+        end
+        puts "Ingrese segundo libro"
+        lib2=gets.chomp
+        if buscarlibro(libro,a,autor)
+            puts "Libro econtrado"
+        end
+        puts "Ingrese tercer numero"
+        lib3=gets.chomp
+        if buscarlibro(libro,a,autor)
+            puts "Libro econtrado"
+        end
+        descuento(libro, existencias)
+
+    elsif compra==2
+        puts "Ingrese primer libro"
+        lib1=gets.chomp
+        if buscarlibro(libro,a,autor)
+            puts "Libro encontrado"
+        end
+        puts "Ingrese Segundo libro"
+        lib2=gets.chomp
+        if buscarlibro(libro,a,autor)
+            puts "Libro encontrado"
+        end
+        descuento(libro, existencias)
+
+    elsif compra==1
+        puts "Ingrese nombre del libro"
+        lib1=gets.chomp
+        if buscarlibro(libro,a,autor)
+            puts "Libro encontrado"
+        end
+        descuento(libro, existencias)
+
+    else
+        puts "Solo puede realizar 3 compras"
+    end
+
+end
 begin
 puts "*****************************"
 puts "Listado de opciones:" 
