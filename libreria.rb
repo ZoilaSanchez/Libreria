@@ -23,7 +23,115 @@ end
 def  vacia?(autor)
     return autor[:tope].nil? && autor[:final]==nil
 end
+def  buscar_libro(libro,l)
+    if vaciaa?(libro)
+    else
+        elemento = {}
+        pp= libro [:tope]
+       loop do
+           if l == pp[:nombre]
+                elemento = pp
+                puts "LIBRO ENCONTRADO"
+                #coocar aqui
+                return true
+                 break
+            elsif pp [:siguiente ] ==  nil
+                puts "libro no encontrado"
+                break
+            else
+                pp = pp [:siguiente ]
+            end
+        end
+    end
+end
+#insertar libro
+def otroin(libro,a,autor,l,f)
+    puts 'ISBN'
+    i=gets.chomp
+    puts 'Precio:'
+    pr=gets.chomp
+    if vaciaa?(libro)
+            elemento = {
+                nombre:l,
+                ISBN:i,
+                nombrea:a,
+                precio:pr,
+                siguiente:nil,
+                size:0,
+                existencias:f
+            }
+       libro[:tope] = elemento
+       libro[:esta_vacia]=false
+    else
+            elemento ={
+                nombre:l,
+                ISBN: i,
+                nombrea:a,
+                precio:pr,
+                size:libro[:size],
+                siguiente:elemento,
+                existencias:f
+            }
+           tope=libro[:tope]
+           elemento[:siguiente]=tope
+          libro[:tope]=elemento
 
+    end
+        elemento[:libro]=libro
+        libro[:size]+=1
+end
+#esto agregar
+def insertarli(libro,a,autor)
+    r=libro[:tope]
+  
+    puts 'Nombre del libro'
+    l=gets.chomp
+    loop do
+      
+    if buscar_libro(libro,l)
+        f=1
+     puts f= f+1
+     puts "EXISTENCIAS"
+     puts libro[:existencias]
+     break
+    else
+        otroin(libro,a,autor,l,f) 
+        f=1
+        puts "EXISTENCIAS"
+        puts  libro[:existencias]=f
+        break
+        
+    end
+    end
+end
+
+def mostrarli(libro,autor)
+
+    if vaciaa?(libro)
+        puts "No hay libros"
+    else
+    table = Terminal::Table.new do | t |
+        t.headings =['CODIGO','NOMBRE LIBRO','NOMBRE AUTOR','PRECIO Q.','Existencias']
+       aux =libro[:tope]
+       loop do 
+            t.add_row ( [
+                aux[:ISBN],
+                aux[:nombre],
+                aux[:nombrea],
+                aux[:precio],
+                libro[:existencias]
+                #como colocar existencias
+                    ])
+                 if aux[:siguiente] != nil
+                    aux=aux[:siguiente]
+                else
+                    break              
+                end
+        
+            end
+            end
+    end
+end
 def mostralibro(libro,t)
     au=libro[:tope]
     if vaciaa?(libro)
