@@ -392,4 +392,60 @@ end
     else
         puts "Solo puede realizar 3 compras"
     end
+    
+end
+begin
+puts "*****************************"
+puts "Listado de opciones:" 
+puts "1. Registrar un libro nuevo"
+puts "2. Registro de autores"
+puts "3. Mostrar listado de libros"
+puts "4. Mostrar listado de autores"
+puts "5. Buscar autores"
+puts "6. Registrar una venta"
+puts "7. Buscar una venta"
+puts "8. Mostrar listado de ventas"
+puts "9. Salir"
+puts "Elijia una opción:"
+op = gets.chomp
+if op== '1'
+    puts 'Nombre del autor'
+    a=gets.chomp
+    if buscar_autor(autor,a,libro)
+       insertarli(libro,a,autor)    
+    else 
+    puts "Autor no existente Desea agregarlo 1.si 2.No"
+    r=gets.chomp
+    if r=='1'
+        insertar(autor,a,libro)
+        insertarli(libro,a,autor)
+    else r=='2'
+    end
+    end
+elsif op== '2'
+    if autor[:size]==5
+        puts "No puede ingresar mas autores"
+    else
+        puts "Ingrese nombre del autor"
+        a=gets.chomp
+        if buscar_autor(autor,a,libro)
+            puts"Ingresado con exito"
+        else
+             insertar(autor,a,libro)
+    end
+end
+
+elsif op=='3'
+    puts mostrarli(libro,autor)
+elsif op=='4'
+    puts mostrar(autor,libro)
+elsif op=='5'
+    puts "Ingrese nombre del autor"
+    n=gets.chomp
+    puts buscar_autorlibros(autor,n,libro)
+elsif op=='6'
+elsif op=='7'
+elsif op=='8'
+end
+end while op !='9'
 
