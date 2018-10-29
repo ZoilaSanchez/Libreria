@@ -1,6 +1,5 @@
 require 'terminal-table'
-#registro de autores autor
-# yo
+# Creacion de una pila llamada libro
 libro = {
     tope: nil,
     max:-1,
@@ -9,6 +8,7 @@ libro = {
     size:0,
     posi:0
 }
+# creacion de una cola llamada autor
 autor = {
     tope: nil,
     final: nil,
@@ -16,21 +16,24 @@ autor = {
     size: 0,
     vacia: true,
     llena: false,
-    
-#registro de libros
+ 
+    # registrar una venta
+    # se crea una funcion para ver si la pila esta vacia
 def  vaciaa?(libro)
     return libro[:tope].nil? && libro[:final]==nil
 end
+    # creacion de una funcion para ver si la cola esta vacia
 def  vacia?(autor)
     return autor[:tope].nil? && autor[:final]==nil
 end
+    # funcion buscar recibe como paramentro la pila libro, y l el nombre
 def  buscar_libro(libro,l)
     if vaciaa?(libro)
     else
        
-            end
+    end
   end
-#insertar libro
+#insertar un libro, recibiendo como parametro la pila, cola.
 def otroin(libro,a,autor,l,f)
     puts 'ISBN'
     i=gets.chomp
@@ -66,7 +69,7 @@ def otroin(libro,a,autor,l,f)
         elemento[:libro]=libro
         libro[:size]+=1
 end
-#esto agregar
+# creacion de una funcion de insertar libro
 def insertarli(libro,a,autor)
     r=libro[:tope]
   
@@ -90,7 +93,7 @@ def insertarli(libro,a,autor)
     end
     end
 end
-
+# mostrar los libros en exitencias en tabla
 def mostrarli(libro,autor)
 
     if vaciaa?(libro)
@@ -118,6 +121,8 @@ def mostrarli(libro,autor)
             end
     end
 end
+# funcion mostrar libros, recibiendo como parametro
+# la pila libro y la tabla
 def mostralibro(libro,t)
     au=libro[:tope]
     if vaciaa?(libro)
@@ -140,6 +145,8 @@ def mostralibro(libro,t)
             end
     end
 end
+# creacion de la funcion insertar con parametros de 
+# cola que es autor, a que es el valor y libro que es pila
 def insertar(autor,a,libro)
     autor[:size] += 1
     elemento = {
@@ -160,7 +167,9 @@ def insertar(autor,a,libro)
     end   
       autor[:max]+=1
 end
+# mostrar y recibe como parametro autor cola, y libro pila.
 def mostrar(autor,libro)
+    #  eliminar el subdesbordamiento
     if vacia?(autor) && vaciaa?(libro)
         puts "No hay autores"
     else
@@ -182,6 +191,7 @@ def mostrar(autor,libro)
     end
     end
 end
+# buscar autor por medio de la pila y cola
 def  buscar_autor(autor,n,libro)
     if vacia?(autor)
     else
@@ -204,7 +214,7 @@ def  buscar_autor(autor,n,libro)
     end
     end
 end
-
+# creacion de funcion buscar autores de libros ingresados
 def  buscar_autorlibros(autor,n,libro)
     if vacia?(autor)
         puts "Esta vacia"
@@ -249,7 +259,7 @@ def  buscar_autorlibros(autor,n,libro)
     end
     end
 end
-
+# si la compra es igual a tres se hara un descuento
 def descuento(existencias,compra)
     #aux[:precio]
     if compra==3
@@ -264,9 +274,8 @@ def descuento(existencias,compra)
     elsif compra==1
         Venta=lib
     end  
-end
-#Ingresamos lineas nuevas 
-
+end 
+# ventas recibe libro, existencias y precio
 def ventas(libro,existencias,precio)
     
    puts mostrar(libro, existencias)
@@ -384,58 +393,3 @@ end
         puts "Solo puede realizar 3 compras"
     end
 
-end
-begin
-puts "*****************************"
-puts "Listado de opciones:" 
-puts "1. Registrar un libro nuevo"
-puts "2. Registro de autores"
-puts "3. Mostrar listado de libros"
-puts "4. Mostrar listado de autores"
-puts "5. Buscar autores"
-puts "6. Registrar una venta"
-puts "7. Buscar una venta"
-puts "8. Mostrar listado de ventas"
-puts "9. Salir"
-puts "Elijia una opción:"
-op = gets.chomp
-if op== '1'
-    puts 'Nombre del autor'
-    a=gets.chomp
-    if buscar_autor(autor,a,libro)
-       insertarli(libro,a,autor)    
-    else 
-    puts "Autor no existente Desea agregarlo 1.si 2.No"
-    r=gets.chomp
-    if r=='1'
-        insertar(autor,a,libro)
-        insertarli(libro,a,autor)
-    else r=='2'
-    end
-    end
-elsif op== '2'
-    if autor[:size]==5
-        puts "No puede ingresar mas autores"
-    else
-        puts "Ingrese nombre del autor"
-        a=gets.chomp
-        if buscar_autor(autor,a,libro)
-            puts"Ingresado con exito"
-        else
-             insertar(autor,a,libro)
-    end
-end
-
-elsif op=='3'
-    puts mostrarli(libro,autor)
-elsif op=='4'
-    puts mostrar(autor,libro)
-elsif op=='5'
-    puts "Ingrese nombre del autor"
-    n=gets.chomp
-    puts buscar_autorlibros(autor,n,libro)
-elsif op=='6'
-elsif op=='7'
-elsif op=='8'
-end
-end while op !='9'
