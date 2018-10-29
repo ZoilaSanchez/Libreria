@@ -2,7 +2,12 @@ require 'terminal-table'
 #registro de autores autor
 # yo
 libro = {
-    
+    tope: nil,
+    max:-1,
+    esta_vacia: true,
+    esta_llena: false,
+    size:0,
+    posi:0
 }
 autor = {
     tope: nil,
