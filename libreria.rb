@@ -1,5 +1,6 @@
 require 'terminal-table'
 #registro de autores autor
+# yo
 libro = {
     tope: nil,
     max:-1,
@@ -15,7 +16,6 @@ max:0,
 size:0,
 vacia:true,
 llena:false,
-}
 #registro de libros
 def  vaciaa?(libro)
     return libro[:tope].nil? && libro[:final]==nil
