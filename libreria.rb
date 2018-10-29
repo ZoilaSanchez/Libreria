@@ -392,7 +392,36 @@ end
     else
         puts "Solo puede realizar 3 compras"
     end
-    
+    def mostrar_ventas(libro, autor)
+
+    ux = ventas
+    ventas[:tope]
+   if vacia?(ventas)
+      puts "la pila esta vacia"
+   else
+        tabla = terminal:: table.new do |t|
+       t. headings = ["ventas", "c. libros"]
+ 
+      aux = ventas[:tope]
+      loop do
+         siguiente= aux[:siguiente]
+         libro = aux[:valor]
+         t.add_ row [{autor[:libro]}-{autor[:nombre]}]
+            obtener_posicion(autores, autor[:libro])
+            siguiente == nil?
+            siguiente[:valor][:carnet]
+         if aux[:siguiente] == nil
+            break
+         end
+         aux = aux[:siguiente]
+        end 
+        t.add_row(:separador)
+        t.add_row([valor:"TOTAL" ])
+        autores[:size]
+    end 
+end 
+puts tabla
+
 end
 begin
 puts "*****************************"
