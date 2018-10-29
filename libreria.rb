@@ -27,19 +27,19 @@ def  buscar_libro(libro,l)
     if vaciaa?(libro)
     else
         elemento = {}
-        pp= libro [:tope]
+        r= libro [:tope]
        loop do
-           if l == pp[:nombre]
-                elemento = pp
+           if l == r[:nombre]
+                elemento = r
                 puts "LIBRO ENCONTRADO"
                 #coocar aqui
                 return true
                  break
-            elsif pp [:siguiente ] ==  nil
+            elsif r [:siguiente ] ==  nil
                 puts "libro no encontrado"
                 break
             else
-                pp = pp [:siguiente ]
+                r = r [:siguiente ]
             end
         end
     end
